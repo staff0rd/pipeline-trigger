@@ -4,5 +4,6 @@ steps:
 - bash: mkdir $(System.DefaultWorkingDirectory)/build
 - bash: echo "this is the build artifact" > output.txt
   workingDirectory: $(System.DefaultWorkingDirectory)/build
+- bash: ls $(Pipeline.Workspace)
 - publish: $(System.DefaultWorkingDirectory)/build
   artifact: my-artifact

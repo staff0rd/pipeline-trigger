@@ -2,8 +2,8 @@ trigger: none
 
 resources:
   pipelines:
-  - pipeline: securitylib # Name of the pipeline resource.
-    source: security-lib-ci # The name of the pipeline referenced by this pipeline resource.
+  - pipeline: first # Name of the pipeline resource.
+    source: first-build # The name of the pipeline referenced by this pipeline resource.
     trigger: true # Run app-ci pipeline when any run of security-lib-ci completes
 
 stages:
@@ -16,7 +16,7 @@ stages:
             deploy:
               steps:
                 - bash: echo "app-ci runs after security-lib-ci completes"
-                - bash: ls
-                - download: current
-                  artifact: my-artifact
-                - bash: ls
+                - bash: ls $(Pipeline.Workspace)
+                - download: specific
+                  pipeline: first
+                - bash: ls $(Pipeline.Workspace)

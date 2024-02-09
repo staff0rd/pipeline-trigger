@@ -1,0 +1,18 @@
+trigger: none
+
+resources:
+  pipelines:
+  - pipeline: first
+    source: first-build
+    trigger: true 
+
+steps:
+  - bash: echo "second-build runs after first completes"
+  - bash: ls
+    workingDirectory: $(Pipeline.Workspace)
+  - download: specific
+    artifact: my-artifact
+    pipeline: first
+  - bash: ls
+    workingDirectory: $(Pipeline.Workspace)
+  - bash: ls
