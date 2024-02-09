@@ -7,9 +7,10 @@ resources:
     trigger: true # Run app-ci pipeline when any run of security-lib-ci completes
 
 stages:
-  - stage: my-stage
+  - stage: my_stage
     jobs:
-      - deployment: my-deployment
+      - deployment: my_deployment
+        environment: 'dev'
         strategy:
           runOnce:
             deploy:
