@@ -1,3 +1,5 @@
+trigger: none
+
 resources:
   pipelines:
   - pipeline: securitylib # Name of the pipeline resource.
