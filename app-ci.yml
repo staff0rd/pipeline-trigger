@@ -10,11 +10,11 @@ stages:
   - stage: my-stage
     jobs:
       - deployment: my-deployment
-      strategy:
-        runOnce:
-          deploy:
-            steps:
-              - bash: echo "app-ci runs after security-lib-ci completes"
-              - download: current
-                artifact: my-artifact
-              - bash: ls
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - bash: echo "app-ci runs after security-lib-ci completes"
+                - download: current
+                  artifact: my-artifact
+                - bash: ls
